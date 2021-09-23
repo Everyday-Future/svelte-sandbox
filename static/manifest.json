@@ -1,0 +1,17 @@
+{
+    "name": "Luminary Handbook",
+    "short_name": "Luminary",
+    "theme_color": "#ffcbe4",
+    "background_color": "#fa99ca",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "https://www.luminaryhandbook.com/",
+    "description": "Luminary Handbook - Fill the gaps in your apps",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "https://www.luminaryhandbook.com/static/images/puteri_esther_color_1024.png",
+            "sizes": "1024x1024"
+        }
+    ]
+}

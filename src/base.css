@@ -1,0 +1,283 @@
+:root {
+	/* The maximum size of a viewport, at which size margins on each side of the content would increase */
+	--max-viewport-width: 1460px;
+
+	/* Unify the horizontal padding */
+	--horizontal-padding: calc((100% / 3) * 0.25 / 2);
+
+	/* COLORS */
+	--luminary-red: #d5695c;
+	--lightgray: #6a7b84;
+	--darkgray: #4c5559;
+	--navy: #6d7a83;
+}
+
+@media screen and (max-width: 768px) {
+	:root {
+		/* Unify the horizontal padding */
+		--horizontal-padding: calc((100% / 2) * 0.25 / 2);
+	}
+}
+
+/*
+=======================
+TEXT
+=======================
+ */
+
+html,
+body {
+	font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+		Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
+	padding: 0;
+	margin: 0;
+}
+
+#svelte {
+	overflow-x: hidden;
+}
+
+.font-sharpie {
+	font-family: 'Permanent Marker', cursive !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--darkgray);
+	margin: 0;
+	padding: 0;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+}
+
+a {
+	color: var(--luminary-red);
+}
+
+a.anchor {
+	display: block;
+	position: relative;
+	top: -90px;
+	visibility: hidden;
+}
+
+a:hover {
+	color: var(--luminary-red);
+}
+
+.a-blank {
+	color: var(--lightgray) !important;
+	text-decoration: none !important;
+}
+
+.a-blank:hover {
+	color: var(--lightgray) !important;
+	text-decoration: none !important;
+}
+
+.u {
+	text-decoration: underline !important;
+}
+
+.strike {
+	text-decoration: line-through;
+	text-decoration-color: var(--luminary-red);
+}
+
+/* make text not selectable to prevent Components glitches */
+.unselectable {
+	/* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
+	-moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+	-webkit-user-select: none;
+	-ms-user-select: none; /* From IE10 only */
+	user-select: none; /* Not valid CSS yet, as of July 2012 */
+	-webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+}
+
+/*
+=======================
+COLORS
+=======================
+ */
+
+.color-navy {
+	color: var(--navy);
+}
+
+.color-cloud-blue {
+	color: #b1bdc3;
+}
+
+.color-ice-blue {
+	color: #ebedee;
+}
+
+.color-khaki {
+	color: #e8e3dd;
+}
+
+.color-red {
+	color: var(--luminary-red) !important;
+}
+
+.color-lightgray {
+	color: var(--lightgray);
+}
+
+.color-darkgray {
+	color: var(--darkgray);
+}
+
+.color-darkgray:hover {
+	color: var(--darkgray);
+}
+
+.bg-color-lightgray {
+	background-color: #ebedee;
+}
+
+.bg-color-midgray {
+	background-color: #aebec4;
+}
+
+.bg-color-slategray {
+	background-color: #6b7c85;
+}
+
+.bg-color-darkgray {
+	background-color: var(--darkgray);
+}
+
+.bg-ice-blue {
+	background-color: #ebedee !important;
+}
+
+.bg-color-red {
+	background-color: var(--luminary-red);
+}
+
+/*
+=======================
+COMPONENTS
+=======================
+ */
+
+.btn {
+	text-decoration: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: 5px;
+	border: none;
+	font-size: 0.9rem;
+	font-weight: 600;
+	padding: 0.6rem 1.6rem;
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+.red-btn {
+	background-color: var(--luminary-red);
+	color: white !important;
+}
+
+/*
+=======================
+ANIMATION
+=======================
+ */
+
+/* remove animation if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0s !important;
+	}
+}
+
+/*
+=======================
+RESPONSIVENESS
+=======================
+ */
+
+/*
+-----------------------
+Mobile portrait
+-----------------------
+*/
+.sm-inline-block {
+	display: inline-block !important;
+}
+
+.sm-grid {
+	display: grid !important;
+}
+
+.sm-flex {
+	display: flex !important;
+}
+
+.sm-none {
+	display: none !important;
+}
+
+.container {
+	padding: 0 10px;
+}
+
+.container-fluid {
+	padding: 0;
+	margin: 0;
+}
+
+/*
+-----------------------
+Mobile landscape
+-----------------------
+*/
+@media only screen and (orientation: landscape) and (max-width: 850px) {
+	.lg-inline-block {
+		display: inline-block !important;
+	}
+
+	.lg-grid {
+		display: grid !important;
+	}
+
+	.lg-flex {
+		display: flex !important;
+	}
+
+	.lg-none {
+		display: none !important;
+	}
+}
+
+/*
+-----------------------
+Tablet portrait
+-----------------------
+*/
+
+/*
+-----------------------
+Tablet and Desktop landscape
+-----------------------
+*/
+@media only screen and (orientation: landscape) and (min-width: 850px) {
+	.container {
+		padding: 0 15px;
+		max-width: 1140px;
+		margin: 0 auto;
+	}
+}
