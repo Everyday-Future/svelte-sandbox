@@ -2,6 +2,7 @@
     import Image from "../Image/Image.svelte";
     import {onMount} from "svelte";
 
+    export let link = '';
     export let src;
     export let alt;
     export let mobile_src;
@@ -19,16 +20,21 @@
 </script>
 
 <div class="card">
-  <Image {src} {alt} {mobile_src} style="width:100%" />
-  <div class="card-container">
-    <h4 class="my-2"><b>{title}</b></h4>
-    <p class="blog-tags">{tags}</p>
-    <p class="pb-2">{@html body}</p>
-  </div>
+  <a href="{link}">
+    <Image {src} {alt} {mobile_src} style="width:100%"/>
+    <div class="card-container">
+      <h4 class="my-2"><b>{title}</b></h4>
+      <p class="blog-tags">{tags}</p>
+      <p class="pb-2">{@html body}</p>
+    </div>
+  </a>
 </div>
 
 
 <style>
+  a:link {
+  text-decoration: none;
+}
   .card {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

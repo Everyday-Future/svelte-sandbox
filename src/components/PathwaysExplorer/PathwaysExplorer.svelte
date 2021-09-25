@@ -84,7 +84,7 @@
 <section>
 	<div class="product-text">
 		<h1>{product.title}</h1>
-		<p class="color-navy">{product.pathwaysDescription}</p>
+		<p style="color: var(--navy)">{product.pathwaysDescription}</p>
 	</div>
 
 	<div

@@ -6,10 +6,18 @@
 	--horizontal-padding: calc((100% / 3) * 0.25 / 2);
 
 	/* COLORS */
+	--white: #ffffff;
 	--luminary-red: #d5695c;
-	--lightgray: #6a7b84;
+	--iceblue: #EBEDEE;
+	--cloudblue: #B1BDC3;
+	--lightblue: #aebec4;
 	--darkgray: #4c5559;
 	--navy: #6d7a83;
+	--khaki: #E8E3DD;
+	--muse: #ECB842;
+	--travel: #47564f;
+	--planner: #41586D;
+	--trainer: #E12A26;
 }
 
 @media screen and (max-width: 768px) {
@@ -77,12 +85,12 @@ a:hover {
 }
 
 .a-blank {
-	color: var(--lightgray) !important;
+	color: var(--navy) !important;
 	text-decoration: none !important;
 }
 
 .a-blank:hover {
-	color: var(--lightgray) !important;
+	color: var(--navy) !important;
 	text-decoration: none !important;
 }
 
@@ -103,68 +111,6 @@ a:hover {
 	-ms-user-select: none; /* From IE10 only */
 	user-select: none; /* Not valid CSS yet, as of July 2012 */
 	-webkit-user-drag: none; /* Prevents dragging of images/divs etc */
-}
-
-/*
-=======================
-COLORS
-=======================
- */
-
-.color-navy {
-	color: var(--navy);
-}
-
-.color-cloud-blue {
-	color: #b1bdc3;
-}
-
-.color-ice-blue {
-	color: #ebedee;
-}
-
-.color-khaki {
-	color: #e8e3dd;
-}
-
-.color-red {
-	color: var(--luminary-red) !important;
-}
-
-.color-lightgray {
-	color: var(--lightgray);
-}
-
-.color-darkgray {
-	color: var(--darkgray);
-}
-
-.color-darkgray:hover {
-	color: var(--darkgray);
-}
-
-.bg-color-lightgray {
-	background-color: #ebedee;
-}
-
-.bg-color-midgray {
-	background-color: #aebec4;
-}
-
-.bg-color-slategray {
-	background-color: #6b7c85;
-}
-
-.bg-color-darkgray {
-	background-color: var(--darkgray);
-}
-
-.bg-ice-blue {
-	background-color: #ebedee !important;
-}
-
-.bg-color-red {
-	background-color: var(--luminary-red);
 }
 
 /*

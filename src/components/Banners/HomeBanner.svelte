@@ -2,7 +2,6 @@
     import {onMount} from 'svelte';
     import {fly, fade} from 'svelte/transition';
     import ImageLoader from '../Image/Image.svelte';
-    import * as animateScroll from "svelte-scrollto";
     import 'focus-visible';
 
     export let animateInterval = 3000;

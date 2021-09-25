@@ -10,36 +10,42 @@
     let isProduct = false;
     let productName = '';
     let productColor = '#fff';
-
 </script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/svelte-hamburgers@3/dist/css/base.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/svelte-hamburgers@3/dist/css/types/squeeze.css" />
 
 <Cart/>
 <div style="background-color: #aebec4" class="navbar">
+  <a href="/">
   <div class="logo-parent">
     <Logo width=150 />
   </div>
+  </a>
 
   <MediaQuery query="(max-width: 810px)" let:matches>
     {#if matches}
-      <Hamburger bind:open color="white" activeColor="white" layerWidth="25px" layerHeight="2px" layerSpacing="9px"
-                 paddingX="19px" paddingY="15px" borderRadius="0"/>
+      <Hamburger bind:open type="squeeze" --color="white" --activeColor="white" --layerWidth="25px" --layerHeight="2px" --layerSpacing="9px"
+                 --paddingX="19px" --paddingY="15px" --borderRadius="0"/>
       {#if open}
         <div class="navmenu" in:slide="{{ duration: 400 }}" out:slide="{{ duration: 400 }}">
-          <a class="navmenu-link" href="#components">Shop</a>
-          <a class="navmenu-link" href="#components">About Us</a>
-          <a class="navmenu-link" href="#components">Works Cited</a>
-          <a class="navmenu-link" href="#components">Prompts</a>
-          <a class="navmenu-link" href="#components">Blog</a>
+          <a class="navmenu-link" href="/">Home</a>
+          <a class="navmenu-link" href="/shop">Shop</a>
+          <a class="navmenu-link" href="/about">About Us</a>
+          <a class="navmenu-link" href="/works-cited">Works Cited</a>
+          <a class="navmenu-link" href="/prompts">Prompts</a>
+          <a class="navmenu-link" href="/blog">Blog</a>
           <a class="navmenu-link" href="/sign-up">Sign In</a>
         </div>
       {/if}
     {:else}
       <div class="navbar-icons">
-        <a class="navbar-link" href="#components">Shop</a>
-        <a class="navbar-link" href="#components">About Us</a>
-        <a class="navbar-link" href="#components">Works Cited</a>
-        <a class="navbar-link" href="#components">Prompts</a>
-        <a class="navbar-link" href="#components">Blog</a>
+        <a class="navbar-link" href="/">Home</a>
+        <a class="navbar-link" href="/shop">Shop</a>
+        <a class="navbar-link" href="/about">About Us</a>
+        <a class="navbar-link" href="/works-cited">Works Cited</a>
+        <a class="navbar-link" href="/prompts">Prompts</a>
+        <a class="navbar-link" href="/blog">Blog</a>
       </div>
       <a class="sign-in" href="/sign-up">Sign In</a>
     {/if}

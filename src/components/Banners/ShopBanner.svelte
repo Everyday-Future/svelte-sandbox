@@ -2,7 +2,7 @@
     import Image from "../Image/Image.svelte";
     import DropdownPicker from "../Inputs/DropdownPicker.svelte";
 
-    export let fontColor = "#fff";
+    export let fontColor = "var(--white)";
 </script>
 
 <div class="banner-container">
