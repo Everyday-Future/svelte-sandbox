@@ -1,52 +1,92 @@
 <script>
     import HomeBanner from "../components/Banners/HomeBanner.svelte";
     import InfoBlock from "../components/InfoBlock.svelte";
+    import Carousel from "../components/Carousel/Carousel.svelte";
+    import TrackerCard from "../components/Cards/TrackerCard.svelte";
     import Image from "../components/Image/Image.svelte";
+    import ProductComparison from "../components/ProductComparison/ProductComparison.svelte";
+
+    const trackerCarousel = {
+        autoplay: true,
+        arrows: false,
+        pauseOnFocus: true,
+        autoplayProgressVisible: true,
+        dots: true,
+        autoplayDuration: 3000,
+        duration: 500,
+        initialPageIndex: 0,
+        currentPageIndex: 0,
+    }
+
+
 </script>
 
 <HomeBanner/>
 
 <div class="container my-5">
   <InfoBlock
-    heading="Info Block 1"
-    subheading="This is the first info block"
-    body="Normally, both your asses would be dead as fucking fried chicken,
-  but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you,
-  I wanna help you. But I can't give you this case, it don't belong to me.
-  Besides, I've already been through too much shit this morning over this case to hand it over
-  to your dumb ass."
+    heading="fill the gaps in your apps"
+    subheading="Custom books to fit your lifestyle"
+    body="We offer a variety of tools to -
+          <ul>
+            <li>Get organized</li>
+            <li>Set and achieve goals</li>
+            <li>See the big picture</li>
+            <li>Journal your journey</li>
+            <li>Play with your creativity</li>
+          </ul>
+        Our books are custom made and tailored to your preferences."
+    btnText="Shop Handbooks"
+    btnLink="/shop"
   >
-    <Image src='https://www.fillmurray.com/640/360' alt="Bill Murray"/>
+    <Image src='https://blog.luminaryhandbook.com/allbooks-stacked-new-1000.jpg' alt="custom books"/>
   </InfoBlock>
 </div>
 
 <div class="container my-5">
   <InfoBlock
-    heading="Info Block 2"
-    subheading="This is the second info block"
-    body="Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense!
-  In a comic, you know how you can tell who the arch-villain's going to be?
-  He's the exact opposite of the hero. And most times they're friends,
-  like you and me! I should've known way back when... You know why, David?
-  Because of the kids. They called me Mr Glass."
+    heading="find your passion"
+    subheading="Great for"
+    body="
+    <ul>
+    <li>Creatives, engineers, designers, artists</li>
+    <li>Planners, Writers, Deep thinkers</li>
+    <li>Athletes, hobbyists, active lifestyles</li>
+    <li>Nutrition, diets, sleep & water tracking</li>
+    </ul>"
     isReversed={true}
   >
-    <Image src='https://www.fillmurray.com/360/840' alt="Bill Murray"/>
+    <Image src='https://blog.luminaryhandbook.com/morning_coffee-1600.jpg' alt="sunny journal"/>
   </InfoBlock>
 </div>
 
 <div class="container my-5">
   <InfoBlock
-    heading="Info Block 3"
-    subheading="This is the third info block"
-    body="Now that there is the Tec-9, a crappy spray gun from South Miami.
-    This gun is advertised as the most popular gun in American crime.
-    Do you believe that shit? It actually says that in the little book that comes with it:
-    the most popular gun in American crime. Like they're actually proud of that shit."
+    heading="DESIGNED WITH YOU IN MIND."
+    subheading="Set yourself up for success"
+    body="Track progress. Celebrate your wins!
+    An ever growing inventory of trackers to choose from when you customize your book."
+    btnText="Shop Handbooks"
+    btnLink="/shop"
   >
-    <Image src='https://www.fillmurray.com/640/360' alt="Bill Murray"/>
+
+    <div style="width: 320px">
+        <TrackerCard>
+      <Carousel {...trackerCarousel}>
+          <Image src='https://blog.luminaryhandbook.com/Organization_qtr.svg' alt="todo list"/>
+          <Image src='https://blog.luminaryhandbook.com/Exercise_qtr_gym.svg' alt="exercise tracker"/>
+          <Image src='https://blog.luminaryhandbook.com/DIYdots_qtr.svg' alt="dot grid"/>
+          <Image src='https://blog.luminaryhandbook.com/grateful_today_1x2.svg' alt="gratitude prompt"/>
+          <Image src='https://blog.luminaryhandbook.com/daily_metrics_1x2.svg' alt="daily metrics"/>
+      </Carousel>
+        </TrackerCard>
+    </div>
   </InfoBlock>
 </div>
+
+
+<ProductComparison />
+
 
 <style>
 

@@ -1,5 +1,5 @@
 <script>
-    import { scroll_y} from "../../stores";
+    import { scroll_y} from "../../lib/stores";
     import Layout from "../../components/Customizer/Layout.svelte";
     import ButtonPicker from "../../components/Inputs/PathwayButton.svelte";
     import StatsCounter from "../../components/StatsCounter.svelte";

@@ -1,5 +1,5 @@
 <script>
-  import {isNumber} from "../../../helpers";
+  import {isNumber} from "../../../lib/helpers";
   export let full; // array of Numbers from 0 to 1
   // use id in the 'half' gradient id to make it unique and avoid same gradient in all 'half' stars
   export let id;

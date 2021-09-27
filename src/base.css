@@ -223,7 +223,7 @@ Tablet and Desktop landscape
 @media only screen and (orientation: landscape) and (min-width: 850px) {
 	.container {
 		padding: 0 15px;
-		max-width: 1140px;
+		max-width: 950px;
 		margin: 0 auto;
 	}
 }

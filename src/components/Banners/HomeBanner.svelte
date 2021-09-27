@@ -8,6 +8,7 @@
     let scrollY;
     let imgWidth;
     let imgHeight;
+    let showPreview = false;
     let preview;
     let previewPrev;
     let preview_imgs = [
@@ -33,6 +34,7 @@
         const interval = setInterval(() => {
             target_option = (target_option + 1) % options.length;
         }, animateInterval);
+        showPreview = true;
 
         return () => {
             clearInterval(interval);
@@ -82,37 +84,39 @@
     </select>
 
   </div>
-  {#if target_option % 2 === 0}
-    <div>
-      <img transition:fade="{{ duration: 400 }}" class="left-page-preview"
-           src="http://blog.luminaryhandbook.com/{preview_imgs[target_option][0]}" alt="page preview"
-           style="top: {imgWidth < 768 ? imgHeight * 0.378 : imgHeight * 0.435}px;
+  {#if showPreview === true}
+    {#if target_option % 2 === 0}
+      <div>
+        <img transition:fade="{{ duration: 400 }}" class="left-page-preview"
+             src="http://blog.luminaryhandbook.com/{preview_imgs[target_option][0]}" alt="page preview"
+             style="top: {imgWidth < 768 ? imgHeight * 0.378 : imgHeight * 0.435}px;
            left: {imgWidth < 768 ? imgWidth * 0.23 : imgWidth * 0.538}px;
            width: {imgWidth < 768 ? imgWidth * 0.33 : imgWidth * 0.14}px">
-    </div>
-    <div>
-      <img transition:fade="{{ duration: 400 }}" class="right-page-preview"
-           src="http://blog.luminaryhandbook.com/{preview_imgs[target_option][1]}" alt="page preview"
-           style="top: {imgWidth < 768 ? imgHeight * 0.33 : imgHeight * 0.37}px;
+      </div>
+      <div>
+        <img transition:fade="{{ duration: 400 }}" class="right-page-preview"
+             src="http://blog.luminaryhandbook.com/{preview_imgs[target_option][1]}" alt="page preview"
+             style="top: {imgWidth < 768 ? imgHeight * 0.33 : imgHeight * 0.37}px;
            left: {imgWidth < 768 ? imgWidth * 0.62 : imgWidth * 0.703}px;
            width: {imgWidth < 768 ? imgWidth * 0.305 : imgWidth * 0.14}px">
-    </div>
-  {/if}
-  {#if target_option % 2 === 1}
-    <div>
-      <img transition:fade="{{ duration: 400 }}" class="left-page-preview"
-           src="http://blog.luminaryhandbook.com/{preview_imgs[target_option][0]}" alt="page preview"
-           style="top: {imgWidth < 768 ? imgHeight * 0.378 : imgHeight * 0.435}px;
+      </div>
+    {/if}
+    {#if target_option % 2 === 1}
+      <div>
+        <img transition:fade="{{ duration: 400 }}" class="left-page-preview"
+             src="http://blog.luminaryhandbook.com/{preview_imgs[target_option][0]}" alt="page preview"
+             style="top: {imgWidth < 768 ? imgHeight * 0.378 : imgHeight * 0.435}px;
            left: {imgWidth < 768 ? imgWidth * 0.23 : imgWidth * 0.538}px;
            width: {imgWidth < 768 ? imgWidth * 0.33 : imgWidth * 0.14}px">
-    </div>
-    <div>
-      <img transition:fade="{{ duration: 400 }}" class="right-page-preview"
-           src="http://blog.luminaryhandbook.com/{preview_imgs[target_option][1]}" alt="page preview"
-           style="top: {imgWidth < 768 ? imgHeight * 0.33 : imgHeight * 0.37}px;
+      </div>
+      <div>
+        <img transition:fade="{{ duration: 400 }}" class="right-page-preview"
+             src="http://blog.luminaryhandbook.com/{preview_imgs[target_option][1]}" alt="page preview"
+             style="top: {imgWidth < 768 ? imgHeight * 0.33 : imgHeight * 0.37}px;
            left: {imgWidth < 768 ? imgWidth * 0.62 : imgWidth * 0.703}px;
            width: {imgWidth < 768 ? imgWidth * 0.305 : imgWidth * 0.14}px">
-    </div>
+      </div>
+    {/if}
   {/if}
 </div>
 

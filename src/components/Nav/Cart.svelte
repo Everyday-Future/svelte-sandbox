@@ -1,43 +1,42 @@
 <script>
   import CartItem from './CartItem.svelte'
-  import { cartcontents, cartopen, products } from '../../stores';
+  import { cartcontents, cartopen, products } from '../../lib/stores';
 	import { fly } from 'svelte/transition';
-  import { configGraphQLSSR } from '../../helpers'
 
   let coupon_name = '';
   let coupon_is_demo = true;
 
   const handleCheckout = async () => {
-    try {
-      const actualTotal = $products.reduce((sum, { price }) => {
-        sum += price
-        return sum
-      }, 0)
-
-      const result = await fetch('/api/create-order', configGraphQLSSR({
-        products: {
-          connect: $products.map(({ id }) => ({ id }))
-        },
-        createdAt: (new Date()).toISOString(),
-        didUsePromo: false,
-        actualTotal,
-      }))
-
-      console.log({ result })
-
-      const data = await result.json()
-
-      console.log({ data })
-
-      if (data) {
-        alert('Order created! Thank you!')
-      }
-      
-    } catch (error) {
-      console.error({
-        error
-      })
-    }
+    // try {
+    //   const actualTotal = $products.reduce((sum, { price }) => {
+    //     sum += price
+    //     return sum
+    //   }, 0)
+    //
+    //   const result = await fetch('/api/create-order', configGraphQLSSR({
+    //     products: {
+    //       connect: $products.map(({ id }) => ({ id }))
+    //     },
+    //     createdAt: (new Date()).toISOString(),
+    //     didUsePromo: false,
+    //     actualTotal,
+    //   }))
+    //
+    //   console.log({ result })
+    //
+    //   const data = await result.json()
+    //
+    //   console.log({ data })
+    //
+    //   if (data) {
+    //     alert('Order created! Thank you!')
+    //   }
+    //
+    // } catch (error) {
+    //   console.error({
+    //     error
+    //   })
+    // }
   }
    
 </script>

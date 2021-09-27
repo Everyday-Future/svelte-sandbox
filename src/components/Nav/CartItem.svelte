@@ -1,5 +1,5 @@
 <script>
-    import {isNumeric} from "../../helpers";
+    import {isNumeric} from "../../lib/helpers";
 
     import Image from "../Image/Image.svelte";
     // Unique name ID for the product

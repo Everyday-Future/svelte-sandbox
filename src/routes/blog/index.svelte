@@ -1,7 +1,8 @@
-<script>
-    import BlogMenuCard from "../components/Cards/BlogMenuCard.svelte";
+<script context="module">
+    import {getBlogs} from "../../lib/api";
 
-    export let blogs = [{
+
+    let defaultPosts = [{
         link: '/blog/post-1',
         src: 'https://www.fillmurray.com/640/360',
         alt: 'blog image 1',
@@ -59,6 +60,30 @@
         body: "And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
     }];
 
+    export async function load() {
+        try {
+            const posts = await getBlogs();
+            const postsList = Object.values(posts);
+            return {
+                props: {
+                    posts: postsList,
+                },
+            }
+        } catch (e) {
+            return {
+                props: {
+                    posts: defaultPosts,
+                },
+            };
+        }
+    }
+</script>
+
+
+<script>
+    import BlogMenuCard from "../../components/Cards/BlogMenuCard.svelte";
+
+    export let posts;
 </script>
 
 
@@ -68,7 +93,7 @@
 
 <div class="container">
   <div class="card-columns">
-    {#each blogs as post}
+    {#each posts as post}
       <div class="card">
         <BlogMenuCard {...post}/>
       </div>

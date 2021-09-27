@@ -1,32 +1,3 @@
-export async function fetchGet(url) {
-	const res = await fetch(url)
-	const response = await res.json()
-	return response
-}
-
-export async function fetchPost(url, data) {
-	const res = await fetch(url, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			Accept: 'application/json'
-		},
-		body: JSON.stringify(data)
-	})
-	const response = await res.json()
-	return response
-}
-
-export function configGraphQLSSR(data = undefined) {
-	return {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			Accept: 'application/json'
-		},
-		body: data ? JSON.stringify(data) : undefined
-	}
-}
 
 // https://stackoverflow.com/questions/8579643/how-to-scroll-up-or-down-the-page-to-an-anchor-using-jquery
 export function scrollToAnchor(aid) {
@@ -51,4 +22,9 @@ export function isNumeric(str) {
 		!isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
 		!isNaN(parseFloat(str))
 	) // ...and ensure strings of whitespace fail
+}
+
+// Build out a link to a citation from just the citation number
+export function citation(citation_number) {
+	return '<a href="/main.works_cited/' + citation_number + '" target="_blank" rel="noopener"><sup>' + citation_number + '</sup></a>'
 }

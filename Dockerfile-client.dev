@@ -1,0 +1,22 @@
+# Multi-stage build for all Luminary Handbook client images
+
+FROM mhart/alpine-node:14 AS client
+# install dependencies
+WORKDIR /srv
+COPY client/package*.json ./client/
+# Copy all local files into the image.
+COPY /client/src ./client/src
+COPY /client/docker.env ./client/.env
+COPY /client/static ./client/static
+COPY /client/jsconfig.json ./client/jsconfig.json
+COPY /client/svelte.config.js ./client/svelte.config.js
+
+WORKDIR /srv/client
+#RUN npm ci
+RUN npm install
+
+# Vite HMR
+EXPOSE $HMR_PORT
+EXPOSE $PORT
+
+CMD npm run dev -- --host 0.0.0.0 --port $PORT

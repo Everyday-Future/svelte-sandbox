@@ -27,7 +27,7 @@
     </p>
     {#if btnText !== ''}
       <div class="btn-container">
-        <Button label="{btnText}"/>
+        <Button label="{btnText}" on:click={() => {location.href=btnLink}}/>
       </div>
     {/if}
   </div>

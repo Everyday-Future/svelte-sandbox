@@ -77,10 +77,6 @@
 <div class="product-comparison-item">
 	<RoundedSelect
 		items={allProducts
-			.filter(
-				(product) =>
-					!allSelectedProducts.some((selectedProduct) => selectedProduct.id === product.id)
-			)
 			.map(({ id, title }) => ({ value: id, label: title }))}
 		value={{ value: selectedProduct.id, label: selectedProduct.title }}
 		on:select={handleDropdownSelect}
@@ -98,15 +94,15 @@
 				<button on:click={handleCTAClick}>{ctaButtonText}</button>
 			</div>
 
-			<h3 class="great-for">
-				{#if index === 0}
-					Great for
-				{/if}
-			</h3>
+<!--			<h3 class="great-for">-->
+<!--				{#if index === 0}-->
+<!--					Great for-->
+<!--				{/if}-->
+<!--			</h3>-->
 		</div>
 	</div>
 
-	<p class="description">{selectedProduct.productComparisonDescription}</p>
+	<p class="description">{@html selectedProduct.productComparisonDescription}</p>
 
 	<a href={selectedProduct.productPagePath}>Learn more ></a>
 </div>

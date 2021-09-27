@@ -14,6 +14,11 @@ const config = {
 			}
 		}),
 		vite: {
+			server: {
+				watch: {
+					usePolling: true
+				}
+			},
 			optimizeDeps: {
 				include: ['cookie', 'url'],
 				exclude: ['node-fetch']

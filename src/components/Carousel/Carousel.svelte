@@ -121,7 +121,7 @@
   $: originalCurrentPageIndex = getOriginalCurrentPageIndex(currentPageIndex, pagesCount, infinite) // index without cloenes
   $: dispatch('pageChange', originalCurrentPageIndex)
 
-  let pagesCount = 0
+  let pagesCount = 1
   $: originalPagesCount = Math.max(pagesCount - (infinite ? CLONES_COUNT : 0), 1) // without clones
 
   function getOriginalCurrentPageIndex(currentPageIndex, pagesCount, infinite) {

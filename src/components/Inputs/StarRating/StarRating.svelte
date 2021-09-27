@@ -1,5 +1,5 @@
 <script>
-  import {isNumber, makeUniqueId} from "../../../helpers";
+  import {isNumber, makeUniqueId} from "../../../lib/helpers";
   import Star from "./StarRatingStar.svelte";
   export let id = makeUniqueId();
   export let rating;

@@ -4,7 +4,7 @@
     import Hamburger from 'svelte-hamburgers';
     import Cart from './Cart.svelte';
     import {fly, slide} from 'svelte/transition';
-    import {cartopen, products} from '../../stores';
+    import {cartopen, products} from '../../lib/stores';
 
     let open = false;
     let isProduct = false;
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/svelte-hamburgers@3/dist/css/types/squeeze.css" />
 
 <Cart/>
-<div style="background-color: #aebec4" class="navbar">
+<div style="background-color: #aebec4" class="navbar unselectable">
   <a href="/">
   <div class="logo-parent">
     <Logo width=150 />
