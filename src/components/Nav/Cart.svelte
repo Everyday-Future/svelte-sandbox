@@ -1,7 +1,8 @@
 <script>
-  import CartItem from './CartItem.svelte'
+  import CartItem from './CartItem.svelte';
   import { cartcontents, cartopen, products } from '../../lib/stores';
-	import { fly } from 'svelte/transition';
+  import { fly } from 'svelte/transition';
+  import CartItem2 from './CartItem2.svelte';
 
   let coupon_name = '';
   let coupon_is_demo = true;
@@ -37,25 +38,37 @@
     //     error
     //   })
     // }
-  }
-   
+  };
 </script>
 
 {#if $cartopen}
   <!-- The Cart menu as an overlay -->
-  <div in:fly="{{ x: 400, duration: 400 }}" out:fly="{{ x: 400, duration: 400 }}" id="cart-window" class="cart-main">
-  <!-- Cart controls-->
+  <div
+    in:fly={{ x: 400, duration: 400 }}
+    out:fly={{ x: 400, duration: 400 }}
+    id="cart-window"
+    class="cart-main"
+  >
+    <!-- Cart controls-->
     <div>
       {#if $products.length === 0}
-        <img id="cart-icon-nav" src="https://blog.luminaryhandbook.com/icon-cart-empty.svg"
-             alt="icon for an empty cart" class="col-auto cursor-pointer cart-icon">
-        {:else}
-        <img id="cart-icon-nav" src="https://blog.luminaryhandbook.com/icon-cart-full.svg"
-             alt="icon for a full cart" class="col-auto cursor-pointer cart-icon">
-        {/if}
+        <img
+          id="cart-icon-nav"
+          src="https://blog.luminaryhandbook.com/icon-cart-empty.svg"
+          alt="icon for an empty cart"
+          class="col-auto cursor-pointer cart-icon"
+        />
+      {:else}
+        <img
+          id="cart-icon-nav"
+          src="https://blog.luminaryhandbook.com/icon-cart-full.svg"
+          alt="icon for a full cart"
+          class="col-auto cursor-pointer cart-icon"
+        />
+      {/if}
       <p class="cart-count m-0">Your Cart ({$products.length})</p>
-      <p class="cart-x m-0" on:click={() => (cartopen.toggle())} >×</p>
-      <div class="cart-divider"></div>
+      <p class="cart-x m-0" on:click={() => cartopen.toggle()}>×</p>
+      <div class="cart-divider" />
     </div>
 
     <!--Cart Items-->
@@ -67,21 +80,80 @@
           logo={product.image}
         />
       {/each}
+      <!-- Testing cart item component -->
+      <!-- <CartItem
+        title="Test"
+        price={`${(54 / 100).toLocaleString()}`}
+        logo="https://blog.luminaryhandbook.com/Notebook-mockup_digest-03-600.png"
+      /> -->
+      <!-- <CartItem2
+        title="Test"
+        subtitle="Subtitle"
+        qty={1}
+        price={`${(54 / 100).toLocaleString()}`}
+        img="https://blog.luminaryhandbook.com/Notebook-mockup_digest-03-600.png"
+      /> -->
+      <CartItem2
+        title="Notebook"
+        description="Golf, running, nutrition"
+        quantity={1}
+        price={15.3}
+        imageURL="https://blog.luminaryhandbook.com/Notebook-mockup_digest-03-600.png"
+      />
+      <CartItem2
+        title="Notebook"
+        description="Golf, running, nutrition"
+        quantity={1}
+        price={15.3}
+        imageURL="https://blog.luminaryhandbook.com/Notebook-mockup_digest-03-600.png"
+      />
+      <CartItem2
+        title="Notebook"
+        description="Golf, running, nutrition"
+        quantity={1}
+        price={15.3}
+        imageURL="https://blog.luminaryhandbook.com/Notebook-mockup_digest-03-600.png"
+      />
+      <CartItem2
+        title="Notebook"
+        description="Golf, running, nutrition"
+        quantity={1}
+        price={15.3}
+        imageURL="https://blog.luminaryhandbook.com/Notebook-mockup_digest-03-600.png"
+      />
     </section>
 
-  <!-- Checkout button-->
-    <div id="checkout-spacer" style="width: 100%; height: 100px;"></div>
+    <!-- Checkout button-->
+    <div id="checkout-spacer" style="width: 100%; height: 100px;" />
     {#if coupon_is_demo}
       <div class="overlay-checkout-btn-div" href="/address">
-        <button id="stripeSubmitBtn" role="button" class="btn overlay-checkout-btn" on:click={handleCheckout}>
-          <img src="https://blog.luminaryhandbook.com/icon-lock-white.svg" alt="Lock" class="overlay-checkout-btn-lock"> Checkout
+        <button
+          id="stripeSubmitBtn"
+          role="button"
+          class="btn overlay-checkout-btn"
+          on:click={handleCheckout}
+        >
+          <img
+            src="https://blog.luminaryhandbook.com/icon-lock-white.svg"
+            alt="Lock"
+            class="overlay-checkout-btn-lock"
+          /> Checkout
         </button>
       </div>
     {:else}
       <div class="overlay-checkout-btn-div">
         <a href="/demo-address">
-          <button id="btn-address" role="button" class="btn overlay-checkout-btn" on:click={handleCheckout}>
-            <img src="https://blog.luminaryhandbook.com/icon-lock-white.svg" alt="Lock" class="overlay-checkout-btn-lock"> Checkout
+          <button
+            id="btn-address"
+            role="button"
+            class="btn overlay-checkout-btn"
+            on:click={handleCheckout}
+          >
+            <img
+              src="https://blog.luminaryhandbook.com/icon-lock-white.svg"
+              alt="Lock"
+              class="overlay-checkout-btn-lock"
+            /> Checkout
           </button>
         </a>
       </div>
@@ -89,9 +161,8 @@
   </div>
 {/if}
 
-
 <style>
-  .cart-main  {
+  .cart-main {
     top: 0;
     right: 0;
     width: 100%;
@@ -130,7 +201,7 @@
     top: 57px;
     left: 0;
     height: 1px;
-    background-color: #6D7A83;
+    background-color: #6d7a83;
   }
   .overlay-checkout-btn-div {
     position: absolute;
@@ -147,7 +218,7 @@
     margin: 0;
     border: solid 10px white;
     color: white;
-    background-color: #D5695C;
+    background-color: #d5695c;
   }
   .overlay-checkout-btn-lock {
     width: 16px;
@@ -161,5 +232,4 @@
     overflow-y: auto;
     padding-bottom: 100px;
   }
-
 </style>
