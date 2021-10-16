@@ -5,7 +5,7 @@
   const dispatch = createEventDispatcher(); // dispatcher to allow us to open it from a button
 
   export let open = false; // boolean to determine if modal is showing so we can dispatch it
-  export let overlay = true; // specify if you want a backdrop or not
+  export let overlay = false; // specify if you want a backdrop or not
   export let alignment = 'center'; // modal alignment, can be modified in getAlignment function to apply class
 
   const getAlignment = () => {
@@ -31,7 +31,12 @@
         on:click={() => dispatch('close')}
       />
     {/if}
-    <div class="modal-inner" in:fade={{ duration: 200 }} out:fade={{ duration: 100 }}>
+    <div
+      class="modal-inner"
+      style={!overlay ? 'box-shadow: 0 0 14px hsl(0, 0%, 70%);' : ''}
+      in:fade={{ duration: 200 }}
+      out:fade={{ duration: 100 }}
+    >
       <button class="button-close" on:click={() => dispatch('close')}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +90,7 @@
 
   .modal-inner {
     z-index: 1201;
-    max-width: 450px;
+    max-width: 600px;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -94,7 +99,7 @@
     background-color: white;
     border-radius: 1rem;
     overflow-y: auto;
-    box-shadow: 0 0 14px hsl(0, 0%, 70%);
+    /* box-shadow: 0 0 14px hsl(0, 0%, 70%); */
     position: relative;
   }
 

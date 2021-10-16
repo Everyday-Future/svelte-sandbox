@@ -3,11 +3,17 @@
   import FeedbackForm from '../components/Form/FeedbackForm.svelte';
   import Modal from '../components/Form/Modal.svelte';
   import FormModal from '../components/Form/FormModal.svelte';
+  import InfoModal from '../components/Modal/InfoModal.svelte';
 
   let showModal = false;
+  let showInfoModal = false;
 
   const handleToggleModal = () => {
     showModal = !showModal;
+  };
+
+  const handleToggleInfoModal = () => {
+    showInfoModal = !showInfoModal;
   };
 </script>
 
@@ -17,6 +23,7 @@
 <!-- TESTING THE FORM MODAL -->
 <div class="center">
   <button on:click={() => handleToggleModal()}>Test Form Modal</button>
+  <button on:click={() => handleToggleInfoModal()}>Test Info Modal</button>
 </div>
 
 <Modal open={showModal} on:close={() => handleToggleModal()} alignment="center" overlay={false}>
@@ -28,10 +35,22 @@
   </svelte:fragment>
 </Modal>
 
+<Modal
+  open={showInfoModal}
+  on:close={() => handleToggleInfoModal()}
+  alignment="center"
+  overlay={true}
+>
+  <svelte:fragment slot="modal-body">
+    <InfoModal />
+  </svelte:fragment>
+</Modal>
+
 <style scoped>
   .center {
     padding: 1rem;
     display: grid;
     place-items: center;
+    gap: 1rem;
   }
 </style>
