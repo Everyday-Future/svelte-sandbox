@@ -1,8 +1,8 @@
 <script>
   import SuggestionBox from '../components/Form/SuggestionBox.svelte';
   import FeedbackForm from '../components/Form/FeedbackForm.svelte';
-  import Modal from '../components/Form/Modal.svelte';
-  import FormModal from '../components/Form/FormModal.svelte';
+  import Modal from '../components/Modal/Modal.svelte';
+  import FormModal from '../components/Modal/FormModal.svelte';
   import InfoModal from '../components/Modal/InfoModal.svelte';
 
   let showModal = false;
