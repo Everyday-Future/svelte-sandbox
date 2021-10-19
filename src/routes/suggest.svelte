@@ -4,6 +4,9 @@
   import Modal from '../components/Modal/Modal.svelte';
   import FormModal from '../components/Modal/FormModal.svelte';
   import InfoModal from '../components/Modal/InfoModal.svelte';
+  import Popover from '../components/Popover/Popover.svelte';
+  import AccountPopover from '../components/Popover/AccountPopover.svelte';
+  import NeverLoseLayout from '../components/Popover/NeverLoseLayout.svelte';
 
   let showModal = false;
   let showInfoModal = false;
@@ -16,6 +19,28 @@
     showInfoModal = !showInfoModal;
   };
 </script>
+
+<div class="link-wrapper">
+  <Popover
+    arrowColor="#fff"
+    action="hover"
+    placement="bottom-end"
+    overlayColor=""
+    padding="0rem"
+    closeButton={false}
+  >
+    <p class="sign-in-link" slot="target">Account Popover Test</p>
+    <div slot="content" class="content">
+      <AccountPopover username="extralongemailname!" />
+    </div>
+  </Popover>
+  <Popover arrowColor="#fff" action="hover" placement="bottom-end" overlayColor="">
+    <p class="sign-in-link" slot="target">Never Lose Layout</p>
+    <div slot="content" class="content">
+      <NeverLoseLayout />
+    </div>
+  </Popover>
+</div>
 
 <SuggestionBox />
 <FeedbackForm />
@@ -52,5 +77,16 @@
     display: grid;
     place-items: center;
     gap: 1rem;
+  }
+
+  .link-wrapper {
+    display: grid;
+    place-items: center;
+  }
+  .sign-in-link {
+    color: red;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
   }
 </style>
