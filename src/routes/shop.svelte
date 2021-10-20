@@ -1,16 +1,27 @@
 <script>
-    import ShopBanner from "../components/Banners/ShopBanner.svelte";
-    import InfoBlock from "../components/InfoBlock.svelte";
-    import Image from "../components/Image/Image.svelte";
-    import {citation} from "../lib/helpers";
-
+  import ShopBanner from '../components/Banners/ShopBanner.svelte';
+  import InfoBlock from '../components/InfoBlock.svelte';
+  import Image from '../components/Image/Image.svelte';
+  import { citation } from '../lib/helpers';
+  import Product from '../components/Product/Product.svelte';
 </script>
 
+<ShopBanner />
 
-<ShopBanner/>
+<div class="sectionContainer">
+  <Product
+    title="Luminary Notebook"
+    description="The ultimate hobbyist's notebook. Design your dream notebook with pages for writing, drawing, dotted/2D/3D grids, sheet music, recipes, and more!"
+    value="notebook"
+    imageUrl="https://blog.luminaryhandbook.com/notebook-doodles-1600.png"
+    alt="notebook book cover"
+    price={35}
+    discount={0.4}
+  />
+</div>
 
 <!-- Journal -->
-<div class="container my-5">
+<!-- <div class="container my-5">
   <InfoBlock
     heading="Find the big picture"
     subheading="Luminary Journal"
@@ -24,13 +35,16 @@
         </ul>"
   >
     <a href="/customize/luminary-journal">
-      <Image src='https://blog.luminaryhandbook.com/journal-doodles-1600.png' alt="journal book cover"/>
+      <Image
+        src="https://blog.luminaryhandbook.com/journal-doodles-1600.png"
+        alt="journal book cover"
+      />
     </a>
   </InfoBlock>
-</div>
+</div> -->
 
 <!-- Notebook -->
-<div class="container my-5">
+<!-- <div class="container my-5">
   <InfoBlock
     heading="As limitless as you are"
     subheading="Luminary Notebook"
@@ -45,13 +59,16 @@
         </ul>"
   >
     <a href="/customize/luminary-notebook">
-      <Image src='https://blog.luminaryhandbook.com/notebook-doodles-1600.png' alt="notebook book cover"/>
+      <Image
+        src="https://blog.luminaryhandbook.com/notebook-doodles-1600.png"
+        alt="notebook book cover"
+      />
     </a>
   </InfoBlock>
-</div>
+</div> -->
 
 <!-- Trainer -->
-<div class="container my-5">
+<!-- <div class="container my-5">
   <InfoBlock
     heading="Fill the gaps in your apps"
     subheading="Luminary Trainer"
@@ -65,13 +82,16 @@
         </ul>"
   >
     <a href="/customize/luminary-trainer">
-      <Image src='https://blog.luminaryhandbook.com/trainer-doodles-1600.png' alt="trainer book cover"/>
+      <Image
+        src="https://blog.luminaryhandbook.com/trainer-doodles-1600.png"
+        alt="trainer book cover"
+      />
     </a>
   </InfoBlock>
-</div>
+</div> -->
 
 <!-- Muse -->
-<div class="container my-5">
+<!-- <div class="container my-5">
   <InfoBlock
     heading="Ignite your creativity"
     subheading="Luminary Muse"
@@ -85,13 +105,13 @@
         </ul>"
   >
     <a href="/customize/luminary-muse">
-      <Image src='https://blog.luminaryhandbook.com/muse-doodles-1600.png' alt="muse book cover"/>
+      <Image src="https://blog.luminaryhandbook.com/muse-doodles-1600.png" alt="muse book cover" />
     </a>
   </InfoBlock>
-</div>
+</div> -->
 
 <!-- Planner -->
-<div class="container my-5">
+<!-- <div class="container my-5">
   <InfoBlock
     heading="Put together your big picture"
     subheading="Luminary Planner"
@@ -104,26 +124,27 @@
   </ul>"
   >
     <a href="/customize/luminary-planner">
-      <Image src='https://blog.luminaryhandbook.com/planner-doodles-1600.png' alt="planner book cover"/>
+      <Image
+        src="https://blog.luminaryhandbook.com/planner-doodles-1600.png"
+        alt="planner book cover"
+      />
     </a>
   </InfoBlock>
-</div>
-
+</div> -->
 
 <div id="free-section" class="container m-auto" style="max-width: 600px">
   <h5 class="font-sharpie subheading-block mt-3">Free Products + Outreach</h5>
   <h2>Personal development for all.</h2>
   <p class="subheading color-navy">
     Our team is obsessed with finding the most effective tools and resources for people to create
-    positive change in their lives. We believe in sharing what we have learned with anyone who
-    wants to know.
-    <br><br>
+    positive change in their lives. We believe in sharing what we have learned with anyone who wants
+    to know.
+    <br /><br />
     That's why all of the products listed above feature <b>free, printable pdf versions</b>
-    and all of the tools below are available for free. No registration. No hassle.
-    Just download them and get started today!
+    and all of the tools below are available for free. No registration. No hassle. Just download them
+    and get started today!
   </p>
 </div>
-
 
 <!-- Habit Tracker -->
 <div class="container my-5">
@@ -139,7 +160,10 @@
               at-a-glance worksheet."
   >
     <a href="/tools/habit-tracker">
-      <Image src='https://blog.luminaryhandbook.com/habits_at_a_glance.jpg' alt="habit tracker printable"/>
+      <Image
+        src="https://blog.luminaryhandbook.com/habits_at_a_glance.jpg"
+        alt="habit tracker printable"
+      />
     </a>
   </InfoBlock>
 </div>
@@ -164,24 +188,24 @@
 <!--</div>-->
 
 <!-- SMART Goals -->
-<div class="container my-5">
+<!-- <div class="container my-5">
   <InfoBlock
     heading="clearly define your plan"
     subheading="SMART Goals Worksheet"
-    body='S.M.A.R.T Goals are a popular and effective goal setting method.
+    body="S.M.A.R.T Goals are a popular and effective goal setting method.
               Our goal setting worksheet can help you plan and achieve your goals.
               It is a great companion to our <a href="/customize/luminary-planner">90 day planner</a> as well!
               <br><br>
               Studies show that more time spent planning and thinking about your goals can
-              improve your performance and increase your likelihood of success.{ citation(221) }
+              improve your performance and increase your likelihood of success.{citation(221)}
               <br><br>
-              Develop your abstract goal into a clear and focused mission!'
+              Develop your abstract goal into a clear and focused mission!"
   >
     <a href="/tools/smart-goals">
-      <Image src='https://blog.luminaryhandbook.com/SMART_Goals.jpg' alt="smart goals printable"/>
+      <Image src="https://blog.luminaryhandbook.com/SMART_Goals.jpg" alt="smart goals printable" />
     </a>
   </InfoBlock>
-</div>
+</div> -->
 
 <!-- Accountability Agreement -->
 <div class="container my-5">
@@ -194,19 +218,18 @@
               accountability partner.
               <br><br>
               Studies show that it's harder to skip a workout when you have
-              someone to hold you accountable.{ citation(187) }
+              someone to hold you accountable.{citation(187)}
               This Accountability Agreement is a tool to be clear about the changes that you want
               and to ask for the kind of support you need to make that change."
   >
     <a href="/tools/accountability-agreement">
-      <Image src='https://blog.luminaryhandbook.com/AccountabilityAgreement.jpg'
-             alt="accountability agreement printable"/>
+      <Image
+        src="https://blog.luminaryhandbook.com/AccountabilityAgreement.jpg"
+        alt="accountability agreement printable"
+      />
     </a>
   </InfoBlock>
 </div>
 
 <style>
-
 </style>
-
-

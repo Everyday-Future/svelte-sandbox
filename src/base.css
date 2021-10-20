@@ -227,3 +227,44 @@ Tablet and Desktop landscape
 		margin: 0 auto;
 	}
 }
+
+
+  .sectionContainer {
+    margin-left: auto;
+    margin-right: auto;
+		width: 100%;
+		padding: 1rem;
+  }
+
+	/* extra small devices (phones) up to 600px */
+	@media and (max-width: 600px) {
+		
+	}
+
+	/* Small devices (portrait tablets and large phones, 600px and up) */
+	@media and (min-width: 600px) {
+		.sectionContainer {
+			max-width: 550px;
+		}
+	}
+
+	/* Medium devices (landscape tablets, 768px and up) */
+	@media (min-width: 768px) {
+		.sectionContainer {
+			max-width: 720px;
+		}
+	}
+
+	/* Large devices (laptops/desktops, 992px and up) */
+	@media (min-width: 992px) {
+		.sectionContainer {
+			max-width: 910px;
+		}
+	}
+
+	/* Extra large devices (large laptops and desktops, 1200px and up) */
+	@media (min-width: 1200px) {
+		.sectionContainer {
+			max-width: 1300px;
+		}
+	}

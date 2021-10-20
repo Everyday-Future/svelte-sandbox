@@ -1,34 +1,49 @@
 <script>
-    import Logo from './Logo.svelte';
-    import MediaQuery from '../../MediaQuery.svelte';
-    import Hamburger from 'svelte-hamburgers';
-    import Cart from './Cart.svelte';
-    import {fly, slide} from 'svelte/transition';
-    import {cartopen, products} from '../../lib/stores';
+  import Logo from './Logo.svelte';
+  import MediaQuery from '../../MediaQuery.svelte';
+  import Hamburger from 'svelte-hamburgers';
+  import Cart from './Cart.svelte';
+  import { fly, slide } from 'svelte/transition';
+  import { cartopen, products } from '../../lib/stores';
+  import Popover from '../Popover/Popover.svelte';
+  import AuthPopover from '../Popover/AuthPopover.svelte';
 
-    let open = false;
-    let isProduct = false;
-    let productName = '';
-    let productColor = '#fff';
+  let open = false;
+  let isProduct = false;
+  let productName = '';
+  let productColor = '#fff';
 </script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/svelte-hamburgers@3/dist/css/base.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/svelte-hamburgers@3/dist/css/types/squeeze.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/svelte-hamburgers@3/dist/css/types/squeeze.css"
+/>
 
-<Cart/>
+<Cart />
 <div style="background-color: #aebec4" class="navbar unselectable">
   <a href="/">
-  <div class="logo-parent">
-    <Logo width=150 />
-  </div>
+    <div class="logo-parent">
+      <Logo width="150" />
+    </div>
   </a>
 
   <MediaQuery query="(max-width: 810px)" let:matches>
     {#if matches}
-      <Hamburger bind:open type="squeeze" --color="white" --activeColor="white" --layerWidth="25px" --layerHeight="2px" --layerSpacing="9px"
-                 --paddingX="19px" --paddingY="15px" --borderRadius="0"/>
+      <Hamburger
+        bind:open
+        type="squeeze"
+        --color="white"
+        --activeColor="white"
+        --layerWidth="25px"
+        --layerHeight="2px"
+        --layerSpacing="9px"
+        --paddingX="19px"
+        --paddingY="15px"
+        --borderRadius="0"
+      />
       {#if open}
-        <div class="navmenu" in:slide="{{ duration: 400 }}" out:slide="{{ duration: 400 }}">
+        <div class="navmenu" in:slide={{ duration: 400 }} out:slide={{ duration: 400 }}>
           <a class="navmenu-link" href="/">Home</a>
           <a class="navmenu-link" href="/shop">Shop</a>
           <a class="navmenu-link" href="/about">About Us</a>
@@ -47,20 +62,35 @@
         <a class="navbar-link" href="/prompts">Prompts</a>
         <a class="navbar-link" href="/blog">Blog</a>
       </div>
-      <a class="sign-in" href="/sign-up">Sign In</a>
+      <div class="sign-in">
+        <Popover arrowColor="#fff" action="hover" placement="bottom-end" overlayColor="">
+          <p class="sign-in-link" slot="target">Sign In</p>
+          <div slot="content" class="content">
+            <AuthPopover />
+          </div>
+        </Popover>
+      </div>
     {/if}
   </MediaQuery>
   {#if $products.length === 0}
-    <img on:click={() => (cartopen.toggle())} id="cart-icon-nav" alt="icon for an empty cart"
-         class="cursor-pointer cart-icon"
-         src="https://blog.luminaryhandbook.com/icon-cart-empty.svg">
+    <img
+      on:click={() => cartopen.toggle()}
+      id="cart-icon-nav"
+      alt="icon for an empty cart"
+      class="cursor-pointer cart-icon"
+      src="https://blog.luminaryhandbook.com/icon-cart-empty.svg"
+    />
   {:else}
-    <img on:click={() => (cartopen.toggle())} id="cart-icon-nav" alt="icon for a full cart"
-         class="cursor-pointer cart-icon"
-         src="https://blog.luminaryhandbook.com/icon-cart-full.svg">
+    <img
+      on:click={() => cartopen.toggle()}
+      id="cart-icon-nav"
+      alt="icon for a full cart"
+      class="cursor-pointer cart-icon"
+      src="https://blog.luminaryhandbook.com/icon-cart-full.svg"
+    />
   {/if}
 </div>
-<div id="nav-spacer"></div>
+<div id="nav-spacer" />
 
 <style>
   .navbar {
@@ -79,11 +109,15 @@
   }
 
   .navmenu {
-    background-color: #6D7A83;
+    background-color: #6d7a83;
     color: white;
     padding-left: 15px;
     width: 100%;
     z-index: 1002;
+  }
+
+  .sign-in-link {
+    color: white;
   }
 
   .navmenu-link {
@@ -144,5 +178,4 @@
       right: 8vw;
     }
   }
-
 </style>
